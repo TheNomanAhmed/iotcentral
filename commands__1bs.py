@@ -4,8 +4,20 @@
 # Pi_3iq_python_sample/@_1bs/commands__1bs.py
 
 import datetime
+import serial
+import time
+from time import sleep
 from sense_hat import SenseHat
 sense = SenseHat()
+
+# Serial communication between Raspberry pi and Computer via port ttyUSB0
+
+ser = serial.Serial(port='/dev/ttyUSB0',
+baudrate=115200,
+parity=serial.PARITY_NONE,
+stopbits=serial.STOPBITS_ONE,
+bytesize=serial.EIGHTBITS,
+timeout=1)
 
 
 r = [255,0,0]
@@ -45,8 +57,9 @@ def Process(gDevice, info):
           '"turnoff" C2D is received with payload', info.getPayload())
 
   if info.getTag() == 'DisplayText':
-    p = info.getPayload()
+    p = str(info.getPayload())
     sense.show_message(p)
+    ser.write(p.encode())
     print(str(datetime.datetime.now()),
           '"DisplayText" C2D is received with payload', info.getPayload())
 
