@@ -13,9 +13,9 @@ import deviceProperties__1bs as _1bs_property
 import commands__1bs as _1bs_command
 
 # want to connect another device? just update the credentials below
-SCOPE_ID = '0ne0009BB77'
-DEVICE_ID = '1tloz0rv3tr'
-KEY = 'WYukwjyxmy7TucAyfHMs82HB/OUelyqo2g1TB8pfVD4='
+SCOPE_ID = ''
+DEVICE_ID = ''
+KEY = ''
 
 gCounter = 0
 gDevice = None
